@@ -1,12 +1,9 @@
 package day1
 
-import java.io.File
-import java.nio.file.Paths
-
-val resourcesPath = Paths.get("").toAbsolutePath().toString() + "\\src\\main\\resources\\day1\\"
+import loadResource
 
 fun main(args: Array<String>) {
-    val measurements = loadMeasurements(resourcesPath + "Measurements")
+    val measurements = loadResource("day1/MeasurementsSimpleDepths")
     println(countIncreasingDepth(measurements))
 }
 
@@ -23,6 +20,3 @@ fun countIncreasingDepth(depthsMeasurement: List<Int>): Int {
     }
     return incrementCounter
 }
-
-fun loadMeasurements(pathname: String): List<Int> = File(pathname).readLines().map { it.toInt()}.toList()
-
