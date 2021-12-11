@@ -8,6 +8,7 @@ fun main(args: Array<String>) {
     val boards = loadBoards(input)
 
     println(findWinningBoardPoints(sequence, boards))
+    println(findLosingBoardPoints(sequence, boards))
 }
 
 fun findWinningBoardPoints(sequence: List<Int>, boards: List<BingoBoard>): Int {
@@ -21,6 +22,19 @@ fun findWinningBoardPoints(sequence: List<Int>, boards: List<BingoBoard>): Int {
         }
     }
     return boards[winningBoard].calculatePoints(sequence)
+}
+
+fun findLosingBoardPoints(sequence: List<Int>, boards: List<BingoBoard>): Int {
+    var losingBoard = -1
+    var losingRounds = 0
+    for ((index, board) in boards.withIndex()) {
+        val rounds = board.calculateRoundsToWin(sequence)
+        if (losingRounds < rounds) {
+            losingRounds = rounds
+            losingBoard = index
+        }
+    }
+    return boards[losingBoard].calculatePoints(sequence)
 }
 
 fun loadSequence(input: List<String>): List<Int> = input.first().split(",").map { it.toInt() }.toList()
