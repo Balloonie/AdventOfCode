@@ -3,7 +3,7 @@ package day1
 import loadResource
 
 fun main(args: Array<String>) {
-    val measurements = loadResource("day1/MeasurementsSimpleDepths")
+    val measurements = loadResource("day1/MeasurementsSimpleDepths").readLines().map { it.toInt()}.toList()
     println(countIncreasingDepth(measurements))
 }
 
