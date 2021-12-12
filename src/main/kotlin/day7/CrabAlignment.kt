@@ -31,6 +31,8 @@ fun calculateOptimalAlignmentFuelCost(startPositions: List<Int>): Int {
     return fuel
 }
 
-fun calculateFuelCost(startPositions: List<Int>, targetPosition: Int): Int = startPositions.map { abs(targetPosition - it) }.sum()
+fun calculateFuelCost(startPositions: List<Int>, targetPosition: Int): Int = startPositions.sumOf { fuelConsumption(abs(targetPosition - it)) }
+
+fun fuelConsumption(steps: Int): Int = (0..steps).sum()
 
 fun createStartingPositions(data: File): List<Int> = data.readLines().flatMap { it.split(",").map { p -> p.toInt() } }
