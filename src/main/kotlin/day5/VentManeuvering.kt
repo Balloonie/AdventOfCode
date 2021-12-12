@@ -2,12 +2,11 @@ package day5
 
 import loadResource
 import java.io.File
+import kotlin.math.abs
 
 fun main(args: Array<String>) {
-
     val ventCoordinates = loadResource("day5/VentCoordinates")
     println(countOverlappingSpots(ventCoordinates))
-
 }
 
 fun countOverlappingSpots(ventCoordinates: File): Int {
@@ -32,7 +31,7 @@ fun getVentLines(ventCoordinates: File): List<Line> {
     return ventCoordinates.readLines().map {
         val coordinates = it.split(" -> ")
         Line(Coordinate(coordinates[0].split(",")[0].toInt(), coordinates[0].split(",")[1].toInt()), Coordinate(coordinates[1].split(",")[0].toInt(), coordinates[1].split(",")[1].toInt()))
-    }.filter { it.isHorizontalOrVertical() }.toList()
+    }.toList()
 }
 
 
@@ -50,6 +49,11 @@ class Line(private val start: Coordinate, private val end: Coordinate) {
                 range.add(Coordinate(i, start.y))
             }
         }
+        else {
+            for (x in start.x toward end.x) {
+                range.add(Coordinate(x, if (start.y > end.y) start.y - abs(start.x - x) else start.y + abs(start.x - x)))
+            }
+        }
     }
 
     fun getIntersections(line: Line): List<Coordinate> {
@@ -58,11 +62,6 @@ class Line(private val start: Coordinate, private val end: Coordinate) {
             if (line.range.contains(coordinate)) intersections.add(coordinate.copy())
         }
         return intersections
-    }
-
-
-    fun isHorizontalOrVertical(): Boolean {
-        return start.x == end.x || start.y == end.y
     }
 
     override fun toString(): String {
