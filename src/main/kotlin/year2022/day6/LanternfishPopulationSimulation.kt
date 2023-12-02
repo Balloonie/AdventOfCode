@@ -1,4 +1,4 @@
-package day6
+package year2022.day6
 
 import loadResource
 import java.io.File

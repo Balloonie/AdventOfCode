@@ -1,4 +1,4 @@
-package day4
+package year2022.day4
 
 import loadResource
 
