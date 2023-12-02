@@ -6,7 +6,7 @@ import kotlin.math.abs
 
 
 fun main(args: Array<String>) {
-    val startPositions = createStartingPositions(loadResource("day7/CrabAlignment"))
+    val startPositions = createStartingPositions(loadResource("year2022/day7/CrabAlignment"))
     println(calculateOptimalAlignmentFuelCost(startPositions))
 
 }

@@ -3,7 +3,7 @@ package year2022.day4
 import loadResource
 
 fun main(args: Array<String>) {
-    val input = loadResource("day4/Bingo").readLines()
+    val input = loadResource("year2022/day4/Bingo").readLines()
     val sequence = loadSequence(input)
     val boards = loadBoards(input)
 

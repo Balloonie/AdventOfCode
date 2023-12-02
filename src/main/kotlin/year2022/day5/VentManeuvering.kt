@@ -5,7 +5,7 @@ import java.io.File
 import kotlin.math.abs
 
 fun main(args: Array<String>) {
-    val ventCoordinates = loadResource("day5/VentCoordinates")
+    val ventCoordinates = loadResource("year2022/day5/VentCoordinates")
     println(countOverlappingSpots(ventCoordinates))
 }
 

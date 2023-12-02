@@ -2,10 +2,9 @@ package year2022.day6
 
 import loadResource
 import java.io.File
-import kotlin.math.round
 
 fun main(args: Array<String>) {
-    val initialPopulation = createPopulation(loadResource("day6/LanternfishesState"))
+    val initialPopulation = createPopulation(loadResource("year2022/day6/LanternfishesState"))
     println(initialPopulation.size)
     val population = simulatePopulation(initialPopulation, 256)
     println(population)

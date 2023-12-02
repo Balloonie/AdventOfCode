@@ -6,7 +6,7 @@ import java.io.File
 
 fun main(args: Array<String>) {
 
-    val diagnostics = loadResource("day3/Diagnostics")
+    val diagnostics = loadResource("year2022/day3/Diagnostics")
     println(calculatePowerConsumption(diagnostics))
     println(calculateLifeSupport(diagnostics))
 }

@@ -5,7 +5,7 @@ import java.util.Queue
 import java.util.LinkedList
 
 fun main(args: Array<String>) {
-    val measurements = loadResource("day1/MeasurementsWindowedDepths").readLines().map { it.toInt()}.toList()
+    val measurements = loadResource("year2022/day1/MeasurementsWindowedDepths").readLines().map { it.toInt()}.toList()
     println(countIncreasingWindowedDepth(measurements))
 }
 
