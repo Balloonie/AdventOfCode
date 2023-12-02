@@ -1,7 +1,6 @@
 package year2023.day1
 
 import loadResource
-import java.util.*
 
 fun main(args: Array<String>) {
     val measurements = loadResource("year2023/day1/CalibrationDocument").readLines()
